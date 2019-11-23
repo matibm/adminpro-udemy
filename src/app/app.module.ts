@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 
 import { RegisterComponent } from './login/register.component';
+import { GraficadonaComponent } from './components/graficadona/graficadona.component';
+
 
 
 @NgModule({
@@ -23,11 +26,12 @@ import { RegisterComponent } from './login/register.component';
     LoginComponent,
     NopagefoundComponent,
      RegisterComponent
+     
   ],
   imports: [
     BrowserModule,
     APP_ROUTES, 
-    
+    FormsModule,
     PagesModule,
     AppRoutingModule
   ],
