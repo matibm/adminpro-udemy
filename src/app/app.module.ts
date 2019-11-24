@@ -1,3 +1,4 @@
+
 import { FormsModule } from '@angular/forms';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,6 +11,8 @@ import { APP_ROUTES } from './app.routes';
 // Modulos
 import { PagesModule } from './pages/pages.module';
  
+// Servicios
+import { ServiceModule } from './services/service.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -17,6 +20,7 @@ import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component
 
 import { RegisterComponent } from './login/register.component';
 import { GraficadonaComponent } from './components/graficadona/graficadona.component';
+import { SettingsService } from './services/service.index';
 
 
 
@@ -33,9 +37,10 @@ import { GraficadonaComponent } from './components/graficadona/graficadona.compo
     APP_ROUTES, 
     FormsModule,
     PagesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceModule
   ],
-  providers: [],
+  providers: [SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
