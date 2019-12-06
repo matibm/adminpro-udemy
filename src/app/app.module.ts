@@ -24,12 +24,14 @@ import { SettingsService } from './services/service.index';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NopagefoundComponent,
      RegisterComponent
+     
      
   ],
   imports: [

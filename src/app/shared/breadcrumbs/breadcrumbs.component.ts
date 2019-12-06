@@ -10,17 +10,18 @@ import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 })
 export class BreadcrumbsComponent implements OnInit {
 
-
+  numero: number;
   public title: string;
   constructor(private router: Router,
     private _title: Title,
     private meta: Meta) {
+      this.numero = 0;
     this.getDataRoute()
   }
 
   ngOnInit() {
   }
-
+ 
   getDataRoute() {
 
     this.router.events.pipe(

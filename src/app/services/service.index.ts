@@ -1,3 +1,5 @@
+export { SubirArchivoService } from './../shared/subir-archivo/subir-archivo.service';
+
 export { LoginGuardGuard } from './guards/login-guard.guard';
 export { UsuarioService } from './usuario/usuario.service';
 export { SidebarService } from './shared/sidebar.service';

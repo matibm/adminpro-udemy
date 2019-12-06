@@ -1,3 +1,4 @@
+import { PipesModule } from './../pipes/pipes.module';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
@@ -17,7 +18,7 @@ import { NgModule } from "@angular/core";
         BreadcrumbsComponent
     ], 
     imports: [RouterModule,
-    
+    PipesModule,
     CommonModule]
 })
 export class SharedModule { }
