@@ -1,3 +1,4 @@
+import { ModalUploadService } from './../components/modal-upload/modal-upload.service';
 
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { NgModule } from '@angular/core';
@@ -22,7 +23,8 @@ import {
     SidebarService,
     SharedService,
     LoginGuardGuard,
-    SubirArchivoService
+    SubirArchivoService,
+    ModalUploadService
   ]
 })
 export class ServiceModule { }

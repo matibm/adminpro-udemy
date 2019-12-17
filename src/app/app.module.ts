@@ -19,7 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { NopagefoundComponent } from './shared/nopagefound/nopagefound.component';
 
 import { RegisterComponent } from './login/register.component';
-import { GraficadonaComponent } from './components/graficadona/graficadona.component';
+
 import { SettingsService } from './services/service.index';
 
 

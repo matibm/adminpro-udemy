@@ -7,6 +7,7 @@ import { URL_SERVICIOS } from './../../config/config';
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { IfStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,11 @@ export class UsuarioService {
 
   }
 
+  cargarUsuario(desde: number = 0) {
+    let url = URL_SERVICIOS + '/usuario?desde=' + desde;
+    return this.http.get(url);
+  }
+
   guardarStorage(id: string, token: string, usuario: Usuario) {
     localStorage.setItem('id', id);
     localStorage.setItem('token', token);
@@ -34,6 +40,7 @@ export class UsuarioService {
     this.usuario = usuario;
     this.token = token;
   }
+
   estaLogueado() {
     return (this.token.length > 5) ? true : false
   }
@@ -85,15 +92,15 @@ export class UsuarioService {
   }
 
   cambiarImagen(archivo: File, id: string) {
-    
+
     this._subirArchivo.subirArchivo(archivo, 'usuarios', id)
-      .then((resp:any) => {
+      .then((resp: any) => {
         console.log(resp);
         this.usuario.img = resp.Usuario.img;
         this.guardarStorage(id, this.token, this.usuario)
-        Swal.fire('Usuario actualizado' , this.usuario.nombre , 'success');
+        Swal.fire('Usuario actualizado', this.usuario.nombre, 'success');
       })
-      .catch(resp =>{
+      .catch(resp => {
         console.log(resp);
       });
   }
@@ -121,9 +128,11 @@ export class UsuarioService {
     let url = URL_SERVICIOS + '/usuario/' + usuario._id;
     url += '?token=' + this.token;
     return this.http.put(url, usuario).pipe(map((resp: any) => {
-      let usuarioDB: Usuario = resp.Usuarios;
-
-      this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+      
+      if (usuario._id === this.usuario._id) {
+        let usuarioDB: Usuario = resp.Usuarios;
+        this.guardarStorage(usuarioDB._id, this.token, usuarioDB);    
+      }
       Swal.fire({
         icon: 'success',
         title: 'Usuario actualizado',
@@ -132,6 +141,22 @@ export class UsuarioService {
 
       return true;
     }));
+  }
+
+  buscarUsuarios(termino: string){
+   let url = URL_SERVICIOS + '/busqueda/coleccion/usuario/' + termino;
+   return this.http.get(url).pipe(map((resp: any) =>{
+    return resp.usuarios
+     
+   }))
+  }
+
+
+  borrarUsusario(id: string){
+    let url = URL_SERVICIOS + '/usuario/' + id;
+    url += '?token=' + this.token;
+    return this.http.delete(url);
+
   }
 
 }
