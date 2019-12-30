@@ -82,6 +82,7 @@ export class UsuariosComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
+      cancelButtonText: 'cancelar',
       confirmButtonText: 'Si, Eliminar!'
     }).then((result) => {
       if (result.value) {

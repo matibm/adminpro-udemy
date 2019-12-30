@@ -24,6 +24,13 @@ export class SidebarService {
         {titulo: 'Hospitales', url:'/hospitales'},
         {titulo: 'Medicos', url:'/medicos'}
       ]
+    }, {
+      titulo: "Proyectos",
+      icono: 'mdi mdi-folder',
+      submenu:[
+        {titulo: 'posts', url : '/posts'}
+      ]
+
     }
   ];
 

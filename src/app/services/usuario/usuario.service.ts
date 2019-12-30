@@ -7,7 +7,6 @@ import { URL_SERVICIOS } from './../../config/config';
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { IfStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,6 @@ export class UsuarioService {
 
   usuario: Usuario;
   token: string;
-
 
 
   constructor(public http: HttpClient,
